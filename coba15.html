@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction and Profile</title>
+  <style>
+    /* Styling Umum */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin-top: auto;
+      font-family: Arial, sans-serif;
+      background: url('latar_belakang.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-size: 30px;
+      color: #ffffff;
+    }
+
+    /* Halaman Pembuka */
+    .intro-page {
+      text-align: center;
+    }
+
+    .intro-page h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .intro-page p {
+      font-size: 24px;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .buttons button:hover {
+      transform: scale(1.1);
+    }
+
+    .btn-yes {
+      background-color: #00bfff;
+      color: #fff;
+    }
+
+    .btn-no {
+      background-color: #ff6961;
+      color: #fff;
+      position: absolute;
+    }
+
+    /* Halaman Utama */
+    .main-body {
+      display: none;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-evenly;
+      margin: 20px 300px;
+      align-items: center;
+      padding: 20px 30px;
+      background-color: rgba(0, 0, 0, 0.7);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #ffffff;
+      margin: 0 15px;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: #00BFFF;
+      text-decoration-line: underline;
+    }
+
+    .content {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      margin: 50px auto;
+      max-width: 1000px;
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .slider img {
+      width: 300px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      border: 2px solid #ffffff; /* Garis pembatas */
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      width: 150px;
+      height: 200px;
+      background: #333;
+      border-radius: 15px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid #ffffff; /* Garis pembatas */
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .card .icon {
+      font-size: 48px;
+      color: #ff0057;
+    }
+
+    .card-text {
+      position: absolute;
+      bottom: -100%;
+      background: white;
+      color: #333;
+      text-align: center;
+      width: 100%;
+      padding: 10px;
+      transition: bottom 0.3s ease-in-out;
+    }
+
+    .card:hover .card-text {
+      bottom: 0;
+    }
+
+    .card-text h3 {
+      margin: 5px 0;
+      color: #e91e63;
+    }
+
+    .card-text p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .profile-image {
+      max-width: 300px;
+      border-radius: 10px;
+      margin-top: 20px;
+      margin-right: 20px;
+      float: left;
+    }
+
+    .profile-description {
+      text-align: left;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .history {
+      display: flex;
+      align-items: flex-start;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      border: 2px solid #ffffff; /* Garis pembatas */
+    }
+
+    .history img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 20px;
+    }
+
+    .history-text {
+      text-align: left;
+      font-size: 16px;
+    }
+
+    .history-text p {
+      margin: 0 0 10px;
+    }
+
+    .history-text p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Halaman Pembuka -->
+  <div id="intro" class="background">
+    <div class="intro-page">
+      <h1>DO YOU WANT TO KNOW ME??</h1>
+      <p>Maybe we can be friends (( •̀ ω •́ )✧</p>
+      <div class="buttons">
+        <button class="btn-yes" onclick="goToMainPage()">YES</button>
+        <button class="btn-no" onclick="moveButton()">NO</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Halaman Utama -->
+  <div id="main-content" class="background main-body">
+    <header>
+      <div class="navbar">
+        <a href="#" onclick="showPage('profil')">Profil</a>
+        <a href="#" onclick="showPage('my-life')">My Life</a>
+      </div>
+    </header>
+    <main>
+        <div id="profil" class="content">
+            <section>
+              <h1>Welcome to My Profile</h1>
+              <p>This is an introduction about myself and my interests.</p>
+              <img src="fotoku.jpg" alt="Foto Saya" class="profile-image">
+              <div class="profile-description">
+                <p>
+                  Halo, perkenalkan nama saya Fadhila Dwi Lestari. Saya berasal dari Yogyakarta. Saat ini, saya adalah seorang mahasiswa di Uniiversitas Teknologi Yogyakarta dari prodi informatika. Tentunya saya memiliki keahlian dalam membuat kodingan tetapi untuk saat ini saya baru menguasai bahasa python dan html. Pada gambar di bawah saya mencantumkan potongan kodingan dari projek-projek yang saya buat. Salah satunya projek programm aplikasi pemesanan tiket trasportasi, disana saya sudah membuat banyak fitur, di antaranya: login dan logout, signup, memesan tiket, melihat tiket, pilihan menu admin dan pengguna, fitur admin(menghapus, mengedit, dan menambahkan). Saya juga pernah membuat projek pembuatan web untuk coffe shop menggunakan bahasa html. Pada web yang saya buat sudah memiliki banyak fitur walau belum 100% lengkap, diantaranya: login, signup, memilih pesanan, menambahkan pesanan, melihat pesanan, dan juga menghapus pesanan. Untuk bahasa html, saya masih merasa kurang dan saya akan berusaha untuk mempelajarinya agar dapat terus mempermudahkanku untuk membuat kodingan.           
+                </p>
+                <p>
+                  Selain membuat kodingan, saya juga memliki kelebihan dalam mendesain dan mengambar dengan tools gambar seperti ibispaintx, pensil, bolpoint, cat dengan kanvas. Tetapi dari banyaknya tools gambar yang saya gunakan, saya lebih menguasai tools gambar dengan cat aqrilik dan kanvas. Walau tools yang saya gunakan sudah banyak, tetapi saya selalu mempunyai keinginan untuk mencoba tools baru seperti cat minyak, atau melukis di kayu, memahat dll. Saya juga memiliki keinginan untuk terus mengembangkan keahlian saya dengan terus berlatih dan mencoba. Saya juga suka mencoba sesuatu yang baru dan menarik. Saya tidak mudah menyerah, saya suka saat memiliki kesulitan entah itu saat membuat kodingan atau mengambar. Setelah saya melewati tahap itu, saya suka rasanya saat saya berhasil melewatinya dan saya juga sadar skillku meningkat, karena itu saya menyukainya.
+                </p>
+              </div>
+            </section>
+      
+            <section id="portfolio">
+              <h2>Berikut ini karya dari keahlian saya:</h2>
+              <div class="slider">
+                <img src="gambar_portofolio1.jpg" alt="Portfolio 1">
+                <img src="gambar_portofolio2.png" alt="Portfolio 2">
+                <img src="gambar_portofolio3.jpg" alt="Portfolio 3">
+                <img src="gambar_portofolio4.jpg" alt="Portfolio 4">
+                <img src="gambar_portofolio5.jpg" alt="Portfolio 5">
+                <img src="gambar_portofolio6.jpg" alt="Portfolio 6">
+                <img src="gambar_portofolio7.jpg" alt="Portfolio 7">
+              </div>
+            </section>
+      
+            <section id="portfolio">
+              <h2>Berikut ini gambaran kodingan dari projek saya:</h2>
+              <div class="slider">
+                <img src="kodingan1.png" alt="Portfolio 1">
+                <img src="kodingan2.png" alt="Portfolio 2">
+                <img src="kodingan3.png" alt="Portfolio 3">
+                <img src="kodingan4.png" alt="Portfolio 4">
+              </div>
+            </section>
+      
+            <section id="contact">
+              <h2>Contact</h2>
+              <div class="container">
+                <div class="card">
+                  <div class="icon">🔗</div>
+                  <div class="card-text">
+                    <h3>LinkedIn</h3>
+                    <p>Connect with me on LinkedIn</p>
+                  </div>
+                </div>
+      
+                <div class="card">
+                  <div class="icon">📧</div>
+                  <div class="card-text">
+                    <h3>Email</h3>
+                    <p>fadhiladwi016@gmail.com</p>
+                  </div>
+                </div>
+      
+                <div class="card">
+                  <div class="icon">📞</div>
+                  <div class="card-text">
+                    <h3>Phone</h3>
+                    <p>
+                      Contact me via phone: 089687037032
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+      
+          <div id="my-life" class="content" style="display: none;">
+            <h1>My Life</h1>
+      
+            <div class="history">
+              <img src="foto1.jpg" alt="My History Photo">
+              <div class="history-text">
+                <p>Saya masih berumur 18 tahun, jika kamu sudah membaca profilku pasti kamu sudah tahu jika aku berasal dari Yogyakarta.</p>
+                <p>Saya lahir di Yogyakarta dan memiliki 2 saudara perempuan jadi saya anak tengah. Saya dulu bersekolah di:</p>
+                <ul>
+                  <li>SD Bopkri Sidomulyo 2</li>
+                  <li>SMP Negeri 1 Gamping</li>
+                  <li>SMA Negeri 1 Sedayu</li>
+                </ul>
+                <p>Yup, semuanya berada di Yogyakarta. Saya lulus dari SMA Negeri 1 Sedayu pada tahun 2024.</p>
+                <p>Foto di samping adalah foto saya dan teman-teman saya saat hari kelulusan.</p>
+              </div>
+            </div>
+      
+            <div class="history">
+              <img src="foto2.png" alt="My History Photo">
+              <div class="history-text">
+                <p>
+                  Saat sekolah saya cukup senang dalam bidang olahraga, sering saat jam olahraga selama 3 jam lebih saya dan teman saya berolahraga di gor/lapangan terkadang saat setelah jam olagraga selesai sering mendapati kelas kosong jadi terkadang saya dan teman-teman saya seharian di gor/lapangan. Olahraga di sekolah yang paling saya sukai adalah basket dan bulutangkis. Saya mengikuti ekskul basket, dan pernah mendapatkan juara, walau hanya saat kelas meeting. But aku suka, bcs aku menang bersama teman-temanku.😍
+                </p>
+              </div>
+            </div>
+      
+            <div class="history">
+              <img src="foto3.png" alt="My History Photo">
+              <div class="history-text">
+                <p>
+                  Saya tidak hanya suka menjalani olagraga di  sekolah, tetapi saya menjalani olahraga rutin saat di rumah, diantaranya: gym dan jalan pagi. Saya melakukannya karena saat rutin olahraga pikiran saya menjadi fresh dan badan saya menjadi enteng, karena itu saya menyukainya. Saya juga berusaha untuk menjaga pola makan agar tetap sehat , karena saya merasa setelah saya mengatur pola hidup saya, banyak hal-hal dalam diri saya yang mulai berubah, yang sangat terlihat itu seperti keaktifan, semangat, kepercayaan diri, itu yang menurut saya sangat terlihat perubahannya. Itu semua membuat saya lebih percaya diri dan bisa fokus dalam pengembangan diri selama kuliah hingga mencapai terget karirku.
+                </p>
+              </div>
+            </div>
+      
+          </div>
+      
+          <div id="my-plan" class="content" style="display: none;">
+            <h1>My Plan</h1>
+            <p>Here are my goals and plans for the future.</p>
+          </div>
+    </main>
+  </div>
+
+  <script>
+    function goToMainPage() {
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+    }
+
+    function moveButton() {
+      const btnNo = document.querySelector(".btn-no");
+      const maxX = window.innerWidth - btnNo.offsetWidth;
+      const maxY = window.innerHeight - btnNo.offsetHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      btnNo.style.left = `${randomX}px`;
+      btnNo.style.top = `${randomY}px`;
+    }
+
+    function showPage(page) {
+      document.getElementById("profil").style.display = "none";
+      document.getElementById("my-life").style.display = "none";
+
+      document.getElementById(page).style.display = "block";
+    }
+  </script>
+</body>
+</html>
